@@ -1,0 +1,8 @@
+DESKTOP:
+/static/dictapp/img/Beweise.jpg
+/static/dictapp/sons/vazio.mp3
+
+
+No pythonanywhere:
+/media/images/Ich_schaue_lieber_in_die_Zukunft.jpg
+/ale.mp3
