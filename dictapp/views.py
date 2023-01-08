@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import os
-#import pyttsx3
+import pyttsx3
 
 # coloquei import os pra usar esse recurso de text-to-speech
 
