@@ -15,7 +15,7 @@ from .forms import DictForm, DictForm2, ImageForm, MudarTabelaForm, DictForm_Bus
 
 # importei esse gtts agora... É só digitar e ele mesmo vai pedir pra instalar
 ### chamar depois ###
-#from gtts import gTTS
+from gtts import gTTS
 # from gtts import *
 
 import sqlite3
@@ -230,9 +230,9 @@ def principal_ale(request, pk):
     n = valor_campo
     ### chamar depois ###
     # Para usar no pythonanywhere
-    #frasex = obj.frase
-    #tts = gTTS(text=frasex, lang='de')
-    #tts.save('ale.mp3')
+    frasex = obj.frase
+    tts = gTTS(text=frasex, lang='de')
+    tts.save('ale.mp3')
 
 
     """
@@ -253,7 +253,6 @@ def principal_ale(request, pk):
 
     if request.POST.get('Testar_pyttsx3'):
         ### chamar depois ###
-        """
         # https://pypi.org/project/pyttsx3/
         objetinho_provis = dictclass.objetos.using('db_ale_01__').get(pk=1)
         qualtabela_a = objetinho_provis.qualtabela2
@@ -267,7 +266,7 @@ def principal_ale(request, pk):
         engine.runAndWait()
         for voice in engine.getProperty('voices'):
             print(voice)
-        """
+
 
         return redirect('url_principal_ale', pk=pk)
 
