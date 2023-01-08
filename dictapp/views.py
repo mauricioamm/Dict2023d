@@ -1,6 +1,9 @@
 from django.shortcuts import render
 import os
 import pyttsx3
+import wave
+from playsound import playsound
+#from pygame import mixer
 
 # coloquei import os pra usar esse recurso de text-to-speech
 
@@ -253,6 +256,10 @@ def principal_ale(request, pk):
 
     if request.POST.get('Testar_pyttsx3'):
         ### chamar depois ###
+        #playsound('/ale.mp3')
+        #open('u.item', encoding="ISO-8859-1")
+
+
         # https://pypi.org/project/pyttsx3/
         objetinho_provis = dictclass.objetos.using('db_ale_01__').get(pk=1)
         qualtabela_a = objetinho_provis.qualtabela2
@@ -262,7 +269,7 @@ def principal_ale(request, pk):
         form = DictForm(request.POST or None, instance=objetinho)
 
         engine = pyttsx3.init()
-        engine.say("Pasta. I wish I could have some pasta tonight, but I am really fat")
+        engine.say("Preste antenção, Jaqueline. Miojo não é janta. Miojo é muito o fundo do poço")
         engine.runAndWait()
         for voice in engine.getProperty('voices'):
             print(voice)
