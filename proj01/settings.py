@@ -128,5 +128,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 STATIC_ROOT = '/home/mauricioamm/Dict2023/dictapp/static'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'dictapp/static')]
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media/', '', 'ale.mp3')  # 'media' is my media folder
+# Gastei algumas procurando um erro. O erro foi usar /media/ em vez de media/. Toda desorganização será punida
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/', '')  # 'media' is my media folder
 

@@ -50,5 +50,5 @@ urlpatterns = [
     path('Parabens/', parabens_view, name='url_parabens_view'),
 ]
 ### chamar depois ###
-#if settings.DEBUG:
-#   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
