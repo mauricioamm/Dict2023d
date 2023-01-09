@@ -3,6 +3,8 @@ import os
 import pyttsx3
 import wave
 from playsound import playsound
+# antes: pip install python-vlc
+import vlc
 #from pygame import mixer
 
 # coloquei import os pra usar esse recurso de text-to-speech
@@ -62,6 +64,29 @@ def Entrada_Iniciar(request):
         obj_primeiro = dictclass.objetos.using(banquinho).first()
         n_primeiro = obj_primeiro.id
         return redirect('url_principal_ing', pk=n_primeiro)
+
+    if request.POST.get('Testar_pyttsx3'):
+        # https://pypi.org/project/pyttsx3/
+        print('testando aqui o Testar_pyttsx3')
+        engine = pyttsx3.init()
+        engine.say("Milton Nascimento é um gigante da música brasileira")
+        engine.runAndWait()
+        for voice in engine.getProperty('voices'):
+            print(voice)
+        return redirect('url_Entrada_sobre')
+
+    if request.POST.get('Testar_playsound'):
+        print('testando aqui o Testar_playsound')
+        playsound('acertou2.wav')
+        playsound('ale.mp3')
+        #open('u.item', encoding="ISO-8859-1")
+        return redirect('url_Entrada_sobre')
+
+    if request.POST.get('Testar_vlc'):
+        p = vlc.MediaPlayer("ale.mp3")
+        p.play()
+        #p.stop()
+        return redirect('url_Entrada_sobre')
 
     """
     if request.POST.get('testar_uploader'):
@@ -135,52 +160,6 @@ def Entrada_relatorios(request):
 
 def Entrada_sobre(request):
     return render(request, "dictapp/Entrada_sobre.html")
-
-
-### alterei 1 ###
-def Entrada_Iniciar(request):
-    # objetinho = dictclass.objetos.using('db_ale_01__').get(pk=1)
-    # objetinho.qualtabela2 = 'db_ale_01__'
-    # objetinho.save()
-
-    # if request.POST.get('comecar_sessao'):
-    #    return redirect('url_sessao_testar', pk=n_rand)
-
-    if request.POST.get('comecar_sessao_ale'):
-        banquinho = 'db_ale_01__'
-        obj_primeiro = dictclass.objetos.using(banquinho).first()
-        n_primeiro = obj_primeiro.id
-        return redirect('url_principal_ale', pk=n_primeiro)
-
-    ### chamar depois ###
-
-    ### alterei 1 ###
-    if request.POST.get('comecar_sessao_ing'):
-        banquinho = 'db_ing_01__'
-        obj_primeiro = dictclass.objetos.using(banquinho).first()
-        n_primeiro = obj_primeiro.id
-        return redirect('url_principal_ing', pk=n_primeiro)
-
-    ### chamar depois ###
-    """
-    if request.POST.get('testar_uploader'):
-        banquinho = 'db_ale_01__'
-        obj_primeiro = dictclass.objetos.using(banquinho).first()
-        n_primeiro = obj_primeiro.id
-        if request.method == 'POST' and request.FILES['myfile']:
-            myfile = request.FILES['myfile']
-            fs = FileSystemStorage()
-            filename = fs.save(myfile.name, myfile)
-            uploaded_file_url = fs.url(filename)
-            return render(request, 'core/simple_upload.html', {
-                'uploaded_file_url': uploaded_file_url
-            })
-        return render(request, 'core/simple_upload.html')
-        # return redirect('url_principal_ale', pk=n_primeiro)
-    """
-
-    return render(request, "dictapp/Entrada_iniciar.html")
-
 
 def principal_ale(request, pk):
     data = {}
