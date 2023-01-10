@@ -61,6 +61,66 @@ div#direito{
   border: 1px solid #ddd;
 }
 
+.btn_salvar {
+  background-repeat: no-repeat;
+  background-position: 10% 50%;
+  width: 120px;
+  height: 25px;
+  background-color:#400490 ;
+  color: White;
+  cursor: pointer;
+}
+
+.btn_novo {
+  background-repeat: no-repeat;
+  background-position: 10% 50%;
+  width: 120px;
+  height: 25px;
+  background-color:#300490 ;
+  color: White;
+  cursor: pointer;
+}
+
+.btn_correta {
+  background-repeat: no-repeat;
+  background-position: 10% 50%;
+  width: 55px;
+  height: 25px;
+  background-color:#300490 ;
+  color: White;
+  cursor: pointer;
+}
+
+.btn_incorreta {
+  background-repeat: no-repeat;
+  background-position: 10% 50%;
+  width: 55px;
+  height: 25px;
+  background-color:#ad1656 ;
+  color: White;
+  cursor: pointer;
+}
+
+.btn_excluir {
+  background-repeat: no-repeat;
+  background-position: 10% 50%;
+  width: 120px;
+  height: 25px;
+  background-color:#ad4656 ;
+  color: White;
+  cursor: pointer;
+}
+
+.btn_sair {
+  background-repeat: no-repeat;
+  background-position: 10% 50%;
+  width: 120px;
+  height: 25px;
+  background-color:#625490 ;
+  color: White;
+  cursor: pointer;
+}
+
 .inserir{
   /* background-image: url(../_img/icone-salvar.png);*/
   background-repeat: no-repeat;
@@ -181,7 +241,6 @@ div#direito{
   padding: 5px;
   margin:2px;
 }
-
 
 .FrasePort {
   width:370px;
@@ -350,17 +409,15 @@ div#direito{
         <input type="text" class="qualtabela" value= "{{ objetinho_linhaum.qualtabela2}} " readonly> 
         <!--<textarea class="qualtabela" readonly>{{form.qualtabela2.value}}</textarea>-->
 
-
-
         &nbsp;&nbsp; 
         Testar:
-        <input type="submit" class="btn_Correta" value="Ing-Port" name="Sortear_ingPort">
-        <input type="submit" class="btn_Correta" value="Port-Ing" name="Sortear_Porting">
+        <input type="submit" class="btn_Correta" value="Ing-Port" name="Sortear_IngPort">
+        <input type="submit" class="btn_Correta" value="Port-Ing" name="Sortear_PortIng">
         <input type="submit" class="btn_Correta" value="Áudio" name="Sortear_Audio">
         <input type="submit" class="btn_Correta" value="Figura" name="Sortear_Figura">
         &nbsp;&nbsp;&nbsp; 
-        <input type="submit" class="btn_Correta" value="Correta" name="Correta">
-        <input type="submit" class="btn_Incorreta" value="Incorreta" name="Incorreta">
+        <input type="submit" class="btn_correta" value="Acertei" name="Correta">
+        <input type="submit" class="btn_incorreta" value="Errei" name="Incorreta">
         <br>
         id:<input type="text" name="id" class="porcentagem" value="{{ objetinho.id }} " readonly>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -369,18 +426,20 @@ div#direito{
         %: <input type="text" class="porcentagem" name="porcentagem" value= "{{ objetinho_novo_linhaum.Porcentagem }} " readonly> 
         &nbsp;  
         <input type="submit" class="btn_Incorreta" value="Resetar Corretas" name="Resetar_Corretas">
-        <input type="submit" class="btn_salvar" value="Salvar" name="salvar_editados">
+
+
         &nbsp;&nbsp;&nbsp; 
         <!--<input type="submit" class="btn_Incorreta" value="Reset id, pk" name="Resetar_idpk">-->
 
       </div>
       <div class="content" id="topo2">
-        <input type="submit" class="btn inserir" value="Novo" name="Novo">
-        <input type="submit" class="btn salvar" value="Editar" name="Editar">
+        <input type="submit" class="btn_novo" value="Novo" name="Novo">
+        <input type="submit" class="btn_salvar" value="Salvar" name="salvar_editados">
+        <!--<input type="submit" class="btn salvar" value="Editar" name="Editar">-->
         <!--<input type="submit" class="btn salvar" value="Salvar" name="Salvar">-->
-        <input type="submit" class="btn excluir" value="Excluir" name="Excluir">
+        <input type="submit" class="btn_excluir" value="Excluir" name="Excluir">
         <!--<a href="https://www.pythonanywhere.com/user/mauricioamm/files/home/mauricioamm/Dict1_1/ale.mp3"></a><br>-->
-        <input type="submit" class="btn inserir" value="Sair" name="Sair">
+        <input type="submit" class="btn_sair" value="Sair" name="Sair">
         <br>
         <input type="submit" class="btn primeiro" value="<<" name="primeiro">
         <input type="submit" class="btn anterior" value="<" name="anterior">
@@ -418,23 +477,19 @@ div#direito{
 
 
       <div class="content" id="direito">
+
         <audio controls>
-          <!--<source src="/media/ing.mp3" type="audio/mpeg">-->
-          <!--<source src="{{objetinho.som1}}" type="audio/mpeg">-->
-          <source src="https://www.pythonanywhere.com/user/mauricioamm/files/home/mauricioamm/Dict1_1/ing.mp3" type="audio/mpeg">
+          <source src="/media/ing.mp3" type="audio/mpeg">
         </audio><br>
+
         <label for="esquerdo">Palavra</label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         Buscar:<textarea class="qualtabela" name="suaresposta2" >{{form.suaresposta2.value}}</textarea>
         <input type="submit" class="btn_salvar" value="OK" name="busquei">
-
-
-
-        <!--<input type="submit" class="btn_Testar" value="Áudio" name="audio_p"><br>-->
         <textarea class="Palavra" name="palavra" >{{form.palavra.value}}</textarea><br>
         <textarea class="PalavraPort" name="palavratrad" >{{form.palavratrad.value}}</textarea>
         <br>
-        <input type="submit" class="btn_salvar" value="Upload" name="Upload">
+        <input type="submit" class="btn_novo" value="Upload" name="Upload">
         <br>
         {% if objetinho.figura1 %}
         <img src="{{objetinho.figura1}}" width="250" height="250"><br>
@@ -442,48 +497,8 @@ div#direito{
         <br>
       </div>
 
-        <!--<audio autoplay="autoplay" controls="controls">
-            <source src="ale.mp3" type="audio/mp3" />
-        </audio>-->
-
-
-        <!--<audio id="Player" autoplay>
-            <source src="/home/mauricioamm/Dict1_1/ale.mp3">
-        </audio>-->
-
+    
   </form>
-
-
-
-
-  <script>
-        var soma= 0
-        totalcorretas= 0
-        totalincorretas= 0
-        campoquatro_n= 0
-
-    function campoquatro() {
-      campoquatro_n= campoquatro_n +1
-            campoquatro_id.innerHTML = `${campoquatro_n}`
-    }
-
-        function somar() {
-            //var tn1 = window.document.getElementById('txtn1')
-            //var tn2 = window.document.getElementById('txtn2')
-            //var res= window.document.getElementById('res')
-            //var n1= Number(tn1.value)
-            //var n2= Number(tn2.value)
-            //var s= n1 + n2
-            soma= soma + 1
-            res.innerHTML = `${soma}`
-        }
-    </script>
-
 </body>
-
-
-
-
-
 </html>
 

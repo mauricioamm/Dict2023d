@@ -45,8 +45,8 @@ urlpatterns = [
     path('sessao_testar_figura_ing/<int:pk>/', sessao_testar_figura_ing, name='url_sessao_testar_figura_ing'),
     path('sessao_tabela_ale/<int:pk>/', sessao_tabela_ale, name='url_sessao_tabela_ale'),
     path('sessao_tabela_ing/<int:pk>/', sessao_tabela_ing, name='url_sessao_tabela_ing'),
-
-    path('sessao_upload/<int:pk>/', sessao_upload_ing, name='url_sessao_upload_ing'),
+    path('sessao_upload_ale/<int:pk>/', sessao_upload_ale, name='url_sessao_upload_ale'),
+    path('sessao_upload_ing/<int:pk>/', sessao_upload_ing, name='url_sessao_upload_ing'),
     path('Parabens/', parabens_view, name='url_parabens_view'),
 ]
 ### chamar depois ###
